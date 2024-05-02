@@ -1,14 +1,27 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import Profile from './pages/Profile'
+import Header from "./components/Header";
 
-function App() {
+
+
+const App = () => {
   return (
-    <>
-   <div className="flex items-center justify-center h-screen">
-    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        click
-    </button>
-</div>
-    </>
-  )
-}
-
-export default App
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/search" element={<Search/>}/>
+        <Route path="/listing/:listingId" element={<Listing />} /> 
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+export default App;
